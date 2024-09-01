@@ -1,20 +1,63 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import Jobs from "./src/pages/jobs/Jobs";
+import JobsDetail from "./src/pages/detail/Detail";
+import Favorites from "./src/pages/favorites/Favorite";
+import reducer from "./src/context/authProvider/reducer";
+import { Provider } from "react-redux";
+import store from "./src/context/authProvider/store";
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
+
+
+function ShowFavorites() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen
+        options={{ headerTitleAlign: "center", headerTintColor: "#ef5350" }}
+        name="Favorites"
+        component={Favorites}
+      />
+    </Stack.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+function ShowJobs() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        options={{ headerTitleAlign: "center", headerTintColor: "#ef5350" }}
+        name="Jobs"
+        component={Jobs}
+      />
+      <Stack.Screen
+        options={{ headerTitleAlign: "center", headerTintColor: "#ef5350" }}
+        name="JobDetail"
+        component={JobsDetail}
+      />
+    </Stack.Navigator>
+  );
+}
+
+const App = () => {
+  return (
+    <Provider store={store}>
+      <NavigationContainer>
+        <Drawer.Navigator
+          screenOptions={{
+            headerShown: false,
+            drawerActiveTintColor: "#f25050",
+          }}
+        >
+          <Drawer.Screen name="Jobs" component={ShowJobs} />
+          <Drawer.Screen name="Favorites" component={ShowFavorites} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </Provider>
+  );
+};
+
+export default App;
