@@ -1,8 +1,8 @@
 import React from "react";
-import { View, TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity, Text } from "react-native";
 import styles from './Button.style'
 
-import Icon from '@expo/vector-icons/MaterialCommunityIcons'
+import Icon from '@expo/vector-icons/MaterialIcons'
 
 const Button = ({ title, onPress, icon }) => {
     return (

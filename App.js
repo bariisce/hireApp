@@ -5,7 +5,6 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import Jobs from "./src/pages/jobs/Jobs";
 import JobsDetail from "./src/pages/detail/Detail";
 import Favorites from "./src/pages/favorites/Favorite";
-import reducer from "./src/context/authProvider/reducer";
 import { Provider } from "react-redux";
 import store from "./src/context/authProvider/store";
 

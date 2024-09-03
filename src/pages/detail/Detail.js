@@ -14,7 +14,7 @@ const Detail = ({route}) => {
 
     const { id } = route.params
     
-    const {data, loading, error} = useFetch(API_DETAIL_URL + id)
+    const {data, loading, error} = useFetch(API_DETAIL_URL + "/"+ id)
     
     const dispatch = useDispatch()
 

@@ -24,8 +24,8 @@ const JobDetailCard = ({ detail, on_click }) => {
                     <RenderHtml source={{ html: `${detail.contents}` }} contentWidth={width} />
                 </View>
                 <View style={styles.buttons}>
-                    <BUTTON name='Submit' icon='logout' onSelect={null} />
-                    <BUTTON name='Favorite Job' icon='favorite' onSelect={on_click} />
+                    <BUTTON title='Submit' icon='logout' onPress={null} />
+                    <BUTTON title='Favorite Job' icon='favorite' onPress={on_click} />
                 </View>
             </ScrollView>
         </View>
